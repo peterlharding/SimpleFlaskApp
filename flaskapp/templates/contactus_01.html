@@ -1,0 +1,107 @@
+{% extends "_layouts/datatable.html" %}
+{% block content %}
+
+<p class="bottom-three">&nbsp;</p>
+
+<div id="wrapper">
+<script type="text/javascript">
+  var RecaptchaOptions = {theme : 'blackglass'};
+</script>
+
+<form class="form-horizontal" method="post" action="/contactus" id="contactform" name="contactform">
+
+  <input type="hidden" name="domain" value="aasdev.net"/>
+
+  <div class="form-group">
+    <div class="col-sm-6 text-center">
+      <h1><b>Contact Us</b></h1>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <div class="col-sm-3 text-right">
+      <label class="control-label" for="name">Name:</label>
+    </div>
+    <div class="col-sm-3">
+      <input class="form-control" id="name" name="Name" type="text" value="">
+    </div>
+  </div>
+
+  <div class="form-group">
+    <div class="col-sm-3 text-right">
+      <label  class="control-label" for="email">E-Mail Address</label>
+    </div>
+    <div class="col-sm-3">
+      <input class="form-control" id="email" name="Email" value="" type="text"/>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <div class="col-sm-3 text-right">
+      <label  class="control-label" for="repeatemail">Repeat E-Mail Address</label>
+    </div>
+    <div class="col-sm-3">
+      <input class="form-control" id="repeatemail" name="RepeatEmail" value="" type="text"/>
+    </div>
+  </div>
+
+
+  <div class="form-group">
+    <div class="col-sm-3 text-right">
+      <label for="phone">Phone (optional)</label>
+    </div>
+    <div class="col-sm-3">
+      <input class="form-control" id="phone" name="Phone" value="" type="text"/>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <div class="col-sm-3 text-right">
+      <label for="company">Company (optional)</label>
+    </div>
+    <div class="col-sm-3">
+      <input class="form-control" id="company"  name="Company" value="" type="text"/>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <div class="col-sm-3 text-right">
+      <label for="website">Website (optional)</label>
+    </div>
+    <div class="col-sm-3">
+      <input class="form-control" id="website" name="Website" value="" type="text"/>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <div class="col-sm-3 text-right">
+      <label for="comments">Comments (optional)</label>
+    </div>
+    <div class="col-sm-3">
+      <textarea class="form-control" id="comments" name="Comments"></textarea>
+    </div>
+  </div>
+
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+
+    <div class="form-group">
+        <div class="col-sm-3 text-center">
+        </div>
+        <div class="col-sm-4 text-center">
+            <div class="g-recaptcha" data-sitekey="{{ ctx.RecaptchaKey }}"></div>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-sm-4 text-right">
+            <input type="submit" class="submit" value="Submit"/>
+        </div>
+    </div>
+  
+</div>
+
+</form>
+</div><!-- #wrapper -->
+<p class="bottom-three">&nbsp;</p>
+
+{% endblock content %}

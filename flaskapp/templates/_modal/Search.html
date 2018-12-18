@@ -1,0 +1,66 @@
+<!-- Search Modal -->
+<div id="modalSearch" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header modal-header-success">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Search AAS Scholarships Data</h4>
+      </div>
+      <div class="modal-body">
+
+<form class="form-horizontal" method="post" action="/search" role="form">
+
+        <div class="form-group">
+          <label for="signature" class="control-label col-sm-3 text-right">CC Signature</label>
+          <div class="col-sm-6 text-left"><input  class="form-control" name="Signature" id="signature" type="text" value=""></div>
+        </div>
+
+        <div class="form-group">
+          <label for="rrn" class="control-label col-sm-3 text-right">RRN:</label>
+          <div class="col-sm-3"><input  class="form-control" name="RRN" id="rrn" type="text" value=""></div>
+        </div>
+
+        <div class="form-group">
+          <label for="name" class="control-label col-sm-3 text-right">Name:</label>
+          <div class="col-sm-4"><input  class="form-control" name="Name" id="name" type="text" value=""></div>
+        </div>
+
+        <div class="form-group">
+          <label for="email" class="control-label col-sm-3 text-right">Email:</label>
+          <div class="col-sm-5"><input  class="form-control" name="Email" id="email" type="text" value=""></div>
+        </div>
+
+        <div class="form-group">
+          <div class="col-sm-offset-2 col-sm-10">
+            <button type="submit" class="btn btn-default btn-success pull-right">Search</button>
+          </div>
+        </div>
+
+</form>
+      </div>
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default btn-warning" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- These styles fix CSE and Bootstrap 3 conflict -->
+<style type="text/css">
+.reset-box-sizing, .reset-box-sizing *, .reset-box-sizing *:before, .reset-box-sizing *:after,  .gsc-inline-block
+{
+  -webkit-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+}
+input.gsc-input, .gsc-input-box, .gsc-input-box-hover, .gsc-input-box-focus, .gsc-search-button
+{
+  box-sizing: content-box;
+  line-height: normal;
+}
+.modal-open .modal, a:focus
+{
+  outline: none !important;
+}
+</style>

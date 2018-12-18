@@ -1,0 +1,251 @@
+{% extends "_layouts/datatable.html" %}
+{% block content %}
+
+  
+    
+    
+<style type="text/css">
+* {
+  margin:0;
+  padding:0;
+}
+
+body {
+  font-size:1rem;
+  line-height:1.5rem;
+  font-family:sans-serif;
+  color:#222;
+  background:#efefef;
+}
+
+p {
+  text-align:center;
+  margin-bottom:1rem;
+}
+
+#wrapper {
+  width:90%;
+  margin:1rem auto;
+}
+
+td {
+  vertical-align:bottom;
+  padding:.5rem 0 1rem;
+}
+
+label,
+input,
+textarea {
+  display:block;
+  height:1.5rem;
+  line-height:1.5rem;
+  width:97%;
+  font-family:sans-serif;
+  font-size:1rem;
+}
+
+label {
+  font-weight:bold;
+}
+
+input,
+textarea {
+  padding:0 .25rem;
+}
+
+input,
+textarea {
+  border: 1px solid #023456;
+}
+
+label::after {
+  content:": ";
+}
+
+.formElement {
+  margin-bottom:.5rem;
+}
+
+.error {
+  color: red;
+  padding:.4rem 0;
+  display: block;
+}
+
+textarea {
+  height:3rem;
+}
+
+.submit {
+  height:3rem;
+  line-height:3rem;
+  font-size:1.3rem;
+  color:#fff;
+  background:#89C33F;
+  margin:2rem auto 0;
+  width:100%;
+  border:1px solid #798f5d;
+  border-radius:.25rem;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  cursor: pointer;
+  transition: background .5s ease-out;
+}
+
+.submit:hover {
+  background: #96d644;
+}
+
+#captcha {
+  margin: 2rem auto -1rem;
+}
+
+.fix {clear:both}
+
+@media screen and (min-width:35rem) {
+
+  #wrapper {
+    max-width:40rem;
+  }
+
+  label,
+  input,
+  textarea {
+    width: 45%;
+    float:left;
+  }
+
+  label {
+    text-align:right;
+    padding-right:.5rem;
+  }
+
+  .submit {
+    margin:2rem 0 0 45%;
+    width:50%;
+    float:none;
+  }
+
+  #captcha {
+    margin-left: 45%;
+  }
+
+}
+
+@media screen and (min-height:40rem) {
+
+  body {
+    font-size:1.5rem;
+    line-height:2rem;
+  }
+
+  label,
+  input,
+  textarea {
+    font-size:1.2rem;
+    line-height:2rem;
+    height:2rem;
+  }
+
+  textarea {
+    height:6rem;
+  }
+
+  label,
+  .inputcurrency {
+    font-size:1rem;
+    padding-top:.2rem;
+  }
+
+}
+</style>
+    
+<p class="bottom-three">&nbsp;</p>
+
+<div id="wrapper">
+
+<script type="text/javascript">var RecaptchaOptions = {theme : 'blackglass'};</script>
+
+<p><b>aasdev.net</b></p>
+
+<form method="post" action="/contactus2" id="contactform" name="contactform">
+
+  <input type="hidden" name="domain" value="aasdev.net"/>
+
+  <div class="formElements">
+
+    <div class="formElement">
+      <label for="name">Name</label>
+      <input id="name" name="Name" class="inputtext" maxlength="50" value="" type="text"/>
+      <div class="fix"></div>
+    </div>
+
+    <div class="formElement">
+      <label for="email">E-Mail Address</label>
+      <input id="email" name="Email" class="inputtext" maxlength="50" value="" type="text"/>
+      <div class="fix"></div>
+    </div>
+
+    <div class="formElement">
+      <label for="repeatemail">Repeat E-Mail Address</label>
+      <input id="repeatemail" name="RepeatEmail" class="inputtext" maxlength="50" value="" type="text"/>
+      <div class="fix"></div>
+    </div>
+
+    <div class="formElement">
+      <label for="phone">Phone (optional)</label>
+      <input id="phone" name="Phone" class="inputtext" maxlength="50" value="" type="text"/>
+      <div class="fix"></div>
+    </div>
+
+    <div class="formElement">
+      <label for="company">Company (optional)</label>
+      <input id="company" name="Company" class="inputtext" maxlength="50" value="" type="text"/>
+      <div class="fix"></div>
+    </div>
+
+    <div class="formElement">
+      <label for="website">Website (optional)</label>
+      <input id="website" name="Website" class="inputtext" maxlength="50" value="" type="text"/>
+      <div class="fix"></div>
+    </div>
+
+    <div class="formElement">
+      <label for="comments">Comments (optional)</label>
+      <textarea id="comments" name="Comments"></textarea>
+      <div class="fix"></div>
+    </div>
+
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+
+    <div class="formElement">
+      <div  id="captcha">
+        <div class="g-recaptcha" data-sitekey="{{ ctx.RecaptchaKey }}"></div>
+      </div>
+      <div class="fix"></div>
+    </div>
+
+    <div class="formElement">
+      <input type="submit" class="submit" value="Submit"/>
+      <div class="fix"></div>
+    </div>
+
+  </div>
+
+</form>
+
+</div><!-- #wrapper -->
+
+{% endblock content %}
+<!--
+
+When your users submit the form where you integrated reCAPTCHA, you'll get as part of the payload a string with the name "g-recaptcha-response". In order to check whether Google has verified that user, send a POST request with these parameters:
+
+URL: https://www.google.com/recaptcha/api/siteverify
+
+  secret (required)	6Lf60BsUAAAAACv3cmhnxXzT9ogVZuqCj6v9g6ox
+  response (required)	The value of 'g-recaptcha-response'.
+  remoteip	The end user's ip address.
+
+-->

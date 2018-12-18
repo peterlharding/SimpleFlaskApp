@@ -1,0 +1,46 @@
+
+# Junk OS files
+
+*.bak
+*.gz
+*.zip
+*.pyc
+*.pyx
+*.o
+*.tz
+*.tar.gz
+*.log
+*.txt
+
+__pycache__/
+
+# Temporary Junk
+
+[aA]
+[aA][aA]
+[aA][aA][aA]
+[xX]
+[xX][xX]
+[xX][xX][xX]
+[xX][xX][xX][xX]
+[zZ]
+[zZ][zZ]
+[zZ][zZ][zZ]
+[zZ][zZ][zZ][zZ]
+
+*.ignore
+*.save
+
+# Database Stuff
+
+DBNAME
+db/**.exp
+
+# Components installed from elsewhere
+
+flaskapp/static/ckeditor/
+
+# Sensitive Files
+
+CONFIG.py
+

@@ -1,0 +1,44 @@
+
+# Scripts
+
+*.py            eol=lf
+*.rb            eol=lf
+*.sh            eol=lf
+*.txt           eol=lf
+
+# MS Office artefacts
+
+*.doc           diff=word
+*.docx          diff=word
+*.xls           -diff
+*.xlsx          -diff
+*.ppt           -diff
+*.pptx          -diff
+*.pps           -diff
+
+# Images and Graphic Objects
+
+*.ico           binary
+*.gif           binary
+*.jpg           binary
+*.jpeg          binary
+*.png           binary
+*.tif           binary
+*.tif           binary
+*.svg           binary
+*.pdf           binary
+
+# Adobe files.
+
+*.psd           binary
+
+# Fonts
+
+*.ttf           binary
+*.woff          binary
+
+# VisualStudio
+
+*.sln           eol=crlf
+*.vcproj        eol=crlf
+

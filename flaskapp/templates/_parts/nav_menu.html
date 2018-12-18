@@ -1,0 +1,55 @@
+<nav id="nb" class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" style="font-weight: bold;" href="http://devops.aasdev.net">
+        <span style="color: #FFFFFF;">FlaskApp</span> <span style="color: #A2CD3A;">Template</span>
+      </a>
+    </div>
+    <div>
+      <ul class="nav navbar-nav">
+        <li {% if ctx.Title == "Home" %}class="active nav-active"{% endif %}><a href="{{ url_for('home') }}">Home</a></li>
+        
+        {% if ctx.Authenticated %}
+            <li {% if ctx.Title == "One" %}class="active nav-active"{% endif %}><a href="{{ url_for('about') }}">One</a></li>
+            <li {% if ctx.Title == "Two" %}class="active nav-active"{% else %}class=""{% endif %}><a href="{{ url_for('about') }}">Two</a></li>
+            <li {% if ctx.Title == "Tools" %}class="active nav-active dropdown"{% endif %}><a class="dropdown-toggle" data-toggle="dropdown" href="{{ url_for('about') }}">Tools<span class="caret"></span></a>
+              <ul class="dropdown-menu">
+			  <li><a href="{{ url_for('about') }}">One</a></li>
+			  <li><a href="{{ url_for('about') }}">Two</a></li>
+			  <li><a href="{{ url_for('about') }}">Three</a></li>
+			  <li><a href="{{ url_for('about') }}">Four</a></li>
+			  </ul>
+			  </li>
+			  <li  {% if ctx.Title == "API" %}class="active nav-active dropdown"{% endif %}><a class="dropdown-toggle" data-toggle="dropdown" href="{{ url_for('about') }}">API<span class="caret"></span></a>
+			  <ul class="dropdown-menu">
+			  <li><a href="{{ url_for('about') }}">List API ULRs</a></li>
+			  </ul>
+			  </li>
+			  <li  {% if ctx.Title == "Lists" %}class="active nav-active dropdown"{% endif %}><a class="dropdown-toggle" data-toggle="dropdown" href="{{ url_for('about') }}">Lists<span class="caret"></span></a>
+			  <ul class="dropdown-menu">
+			  <li><a href="{{ url_for('about') }}?type=tables">List Tables</a></li>
+			  </ul>
+            </li>
+        {% endif %}
+        
+        <li  {% if ctx.Title == "About" %}class="active"{% endif %} class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="{{ url_for('about') }}">About<span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="{{ url_for('contactus_01') }}">Contact Us</a></li>
+            <li><a href="{{ url_for('contactus_02') }}">Contact Us (Alt)</a></li>
+            <li><a href="{{ url_for('about') }}">About</a></li>
+          </ul>
+      </ul>
+      
+      {% if ctx.Authenticated %}
+        <ul class="nav navbar-nav navbar-right">
+            <li><a href="#modalSearch" data-toggle="modal" data-target="#modalSearch"><span class="glyphicon glyphicon-search"></span> <span class="hidden-sm hidden-md hidden-lg"> Search</a></li>
+            <li><a href="{{ url_for('about') }}">Logout</a></li>
+        </ul>
+      {% else %}
+        <ul class="nav navbar-nav navbar-right">
+            <li><a href="{{ url_for('about') }}">Login</a></li>
+        </ul>
+      {% endif %}
+    </div>
+  </div>
+</nav>
